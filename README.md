@@ -1,1 +1,1 @@
-# This is my README
+# PONG on Terasic DE0
