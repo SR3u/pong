@@ -1,0 +1,57 @@
+module	PONG	(	//	Ball coordinates
+						ballX,
+						ballY,
+						//Clock
+						CLK,
+						//	Plateforms coordinates
+						plat1X,
+						plat1Y,
+						plat2X,
+						plat2Y	);
+output	reg	[9:0]	ballX;
+output	reg	[9:0]	ballY;
+output	reg	[9:0]	plat1X;
+output	reg	[9:0]	plat1Y;
+output	reg	[9:0]	plat2X;
+output	reg	[9:0]	plat2Y;
+input				CLK;
+
+integer speedX=1;
+integer speedY=1;
+integer ball_X=100;
+integer ball_Y=100;
+
+reg [26:0] clocks=0;
+
+
+always@(posedge CLK)
+begin
+if(clocks>50000000)
+begin
+clocks=0;
+if(ball_X<=0||ball_X>=640)
+begin
+speedX=speedX*(-1);
+end
+if(ball_Y<=0||ball_Y>=480)
+begin
+speedY=speedY*(-1);
+end
+ball_X=ball_X+speedX;
+ball_Y=ball_Y+speedY;
+end
+clocks<=clocks+1;
+
+   ballX <= ball_X;
+   ballY <= ball_X;	
+	
+	
+	plat1X <= 20;
+	plat2X <= 500;
+	
+	// // //
+	plat2Y <= 0;
+	plat1Y <= 470;
+end
+
+endmodule
