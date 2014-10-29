@@ -41,7 +41,7 @@ input EnableAI2;
 
 //Constants
 integer CLKs = 312500;//625000;//Game speed
-integer AIReact = 250;//X coordinate of maximum ai's reaction
+integer AIReact = 260;//X coordinate of maximum ai's reaction
 integer platY0 = 220;//Y coordinates of the platforms 1 & 2 at the begining
 //Variables
 integer speedX=1;
